@@ -199,6 +199,14 @@ if(USE_OPENSL)
   target_link_libraries(cubeb PRIVATE OpenSLES)
 endif()
 
+check_include_files(aaudio/AAudio.h USE_AAUDIO)
+if(USE_AAUDIO)
+  target_sources(cubeb PRIVATE
+    src/cubeb_aaudio.c)
+  target_compile_definitions(cubeb PRIVATE USE_AAUDIO)
+  target_link_libraries(cubeb PRIVATE pthread ${CMAKE_DL_LIBS})
+endif()
+
 check_include_files(android/log.h USE_AUDIOTRACK)
 if(USE_AUDIOTRACK)
   target_sources(cubeb PRIVATE
