@@ -23,6 +23,7 @@ matrix:
     - env: SCAN_BUILD=true
     - env: CROSS=mingw
     - env: CROSS=android API_LEVEL=android-16
+    - env: CROSS=android API_LEVEL=android-26
     - os: osx
     - os: osx
       env: SCAN_BUILD=true
