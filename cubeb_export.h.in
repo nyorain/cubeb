@@ -1,0 +1,18 @@
+#ifndef CUBEB_MESON_EXPORT_H
+#define CUBEB_MESON_EXPORT_H
+
+#mesondefine CUBEB_SHARED
+
+#if !defined(CUBEB_EXPORT) && defined(CUBEB_SHARED)
+ #if defined(_WIN32) || defined(__CYGWIN__)
+  #define CUBEB_EXPORT __declspec(dllimport)
+ #elif __GNUC__ >= 4
+  #define CUBEB_EXPORT __attribute__((visibility ("default")))
+ #endif
+#endif
+
+#ifndef CUBEB_EXPORT
+ #define CUBEB_EXPORT
+#endif
+
+#endif /* CUBEB_MESON_EXPORT_H */
