@@ -19,7 +19,7 @@ cc = meson.get_compiler('c')
 cppc = meson.get_compiler('cpp')
 
 windows = host_machine.system() == 'windows'
-android = (cc.get_define('__ANDROID__') != '')
+android = target_machine.system() == 'android'
 darwin = host_machine.system() == 'darwin'
 
 # warnings and stuff
