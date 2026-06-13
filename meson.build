@@ -45,6 +45,7 @@ if shared
 	endif
 else
 	target_type = 'static_library'
+	cubeb_args += '-static-libstdc++'
 endif
 
 
