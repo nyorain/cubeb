@@ -9,8 +9,8 @@ project('cubeb', ['c', 'cpp'],
 shared = get_option('default_library') != 'static'
 
 # don't use default_options to allow being embedded as subproject
-add_project_arguments(['-std=gnu++11'], language: 'cpp')
-add_project_link_arguments(['-std=gnu++11'], language: 'cpp')
+add_project_arguments(['-std=gnu++17'], language: 'cpp')
+add_project_link_arguments(['-std=gnu++17'], language: 'cpp')
 add_project_arguments(['-std=gnu11'], language: 'c')
 add_project_link_arguments(['-std=gnu11'], language: 'c')
 

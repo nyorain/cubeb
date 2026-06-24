@@ -412,7 +412,7 @@ sum2(TYPE_SAMPLE * out,
 {
   static_assert(
     std::is_same<TYPE_COEFF,
-                 typename std::result_of<F(TYPE_COEFF)>::type>::value,
+                 typename std::invoke_result<F, TYPE_COEFF>::type>::value,
     "function must return the same type as used by matrix_coeff");
   for (uint32_t i = 0; i < frames; i++) {
     *out = operand(coeff1 * *in1 + coeff2 * *in2);
@@ -434,7 +434,7 @@ copy(TYPE_SAMPLE * out,
 {
   static_assert(
     std::is_same<TYPE_COEFF,
-                 typename std::result_of<F(TYPE_COEFF)>::type>::value,
+                 typename std::invoke_result<F, TYPE_COEFF>::type>::value,
     "function must return the same type as used by matrix_coeff");
   for (uint32_t i = 0; i < frames; i++) {
     *out = operand(coeff * *in);
@@ -450,7 +450,7 @@ static int rematrix(const MixerContext * s, TYPE * aOut, const TYPE * aIn,
 {
   static_assert(
     std::is_same<TYPE_COEFF,
-                 typename std::result_of<F(TYPE_COEFF)>::type>::value,
+                 typename std::invoke_result<F, TYPE_COEFF>::type>::value,
     "function must return the same type as used by matrix_coeff");
 
   for (uint32_t out_i = 0; out_i < s->_out_ch_count; out_i++) {
